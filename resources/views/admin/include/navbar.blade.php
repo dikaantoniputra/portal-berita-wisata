@@ -66,7 +66,7 @@
 
       <li>
         
-          <h4 class="page-title-main">Desa Ngarum</h4>
+          <h4 class="page-title-main">Pariwisata</h4>
       </li>
 
   </ul>

@@ -1,20 +1,20 @@
 <!-- ==== jQuery Library ==== -->
-<script src="js/jquery-3.2.1.min.js"></script>
+<script src="{{ asset('') }}portal/js/jquery-3.2.1.min.js"></script>
 
 <!-- ==== Bootstrap Framework ==== -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{{ asset('') }}portal/js/bootstrap.min.js"></script>
 
 <!-- ==== StickyJS Plugin ==== -->
-<script src="js/jquery.sticky.min.js"></script>
+<script src="{{ asset('') }}portal/js/jquery.sticky.min.js"></script>
 
 <!-- ==== HoverIntent Plugin ==== -->
-<script src="js/jquery.hoverIntent.min.js"></script>
+<script src="{{ asset('') }}portal/js/jquery.hoverIntent.min.js"></script>
 
 <!-- ==== Marquee Plugin ==== -->
-<script src="js/jquery.marquee.min.js"></script>
+<script src="{{ asset('') }}portal/js/jquery.marquee.min.js"></script>
 
 <!-- ==== Validation Plugin ==== -->
-<script src="js/jquery.validate.min.js"></script>
+<script src="{{ asset('') }}portal/js/jquery.validate.min.js"></script>
 
 <!-- ==== Isotope Plugin ==== -->
 <script src="{{ asset('') }}portal/js/isotope.min.js"></script>

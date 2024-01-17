@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="header-title">Desa Ngarum Form Kategori Kegiatan</h4>
+            <h4 class="header-title">Pariwisata Form Kategori </h4>
             <p class="sub-header">Masukan Data Kategori Kegiatan Secara Benar</p>
 
             <form class="needs-validation" novalidate>

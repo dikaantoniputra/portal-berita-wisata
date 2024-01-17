@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
 
-    public function index(Request $request)
-    {
-        $pengumuman = Pengumuman::orderBy('created_at', 'desc')->paginate(2);
-        $kegiatan = Kegiatan::orderBy('created_at', 'desc')->paginate(2);
-        return view('index', compact('pengumuman','kegiatan'));
-    }
+    // public function index(Request $request)
+    // {
+    //     // $pengumuman = Pengumuman::orderBy('created_at', 'desc')->paginate(2);
+    //     // $kegiatan = Kegiatan::orderBy('created_at', 'desc')->paginate(2);
+    //     return view('index');
+    // }
 
 
     public function showLoginForm()

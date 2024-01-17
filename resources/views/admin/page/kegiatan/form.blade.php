@@ -2,14 +2,14 @@
     <div class="card">
         <div class="card-body">
 
-            <h4 class="header-title">Desa Ngarum Form Kegiatan</h4>
+            <h4 class="header-title">Pariwisata Form Kegiatan</h4>
             <p class="sub-header">Masukan Data Kegiatan Secara Benar</p>
 
             <form class="needs-validation" novalidate>
                
                 
                 <div class="mb-3">
-                    <label class="form-label col-md-3 col-sm-12 col-form-label">Judul Kegiatan</label>
+                    <label class="form-label col-md-3 col-sm-12 col-form-label">Category Wisata</label>
                       <div class="col">
 
                         <select class="form-select" id="" name="category_kegiatan_id">
@@ -25,6 +25,14 @@
                       </div>
                     <div class="invalid-feedback">
                         Please provide a valid city.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Judul</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="First name" name="judul" value="{{ $kegiatan->judul ?? '' }}" required />
+                    <div class="valid-feedback">
+                        Looks good!
                     </div>
                 </div>
                 

@@ -73,9 +73,9 @@ Route::get('/comment2/delete/{id}', [CommentKegiatanController::class, 'destroy'
 
 Route::get('/', [AuthController::class, 'index'])->name('index');
 
-Route::get('kontak', function () {
-    return view('kontak');
-})->name('kontak');
+Route::get('about', function () {
+    return view('about');
+})->name('about');
 
 Route::get('susunan', function () {
     $foto = Susunan::all();

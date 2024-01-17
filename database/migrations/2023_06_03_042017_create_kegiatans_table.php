@@ -19,6 +19,7 @@ class CreateKegiatansTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('slug')->unique();
+            $table->string('judul')->nullable();
             $table->text('deskripsi');
             $table->string('gambar')->nullable();
             $table->timestamps();

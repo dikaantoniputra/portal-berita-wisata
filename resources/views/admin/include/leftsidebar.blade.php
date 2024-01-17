@@ -8,7 +8,7 @@
 
               <div class="dropdown">
                 <img src="{{ asset('assets/images/logo1.png') }}" class="img-fluid" style="width: 50px">
-                  <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">Admin Desa Ngarum</a>
+                  <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">Admin Pariwisata</a>
                   <div class="dropdown-menu user-pro-dropdown">
                       <!-- item-->
                       {{-- <a href="javascript:void(0);" class="dropdown-item notify-item">
@@ -57,45 +57,46 @@
                 <li class="menu-title mt-2">User</li>
 
                 <li>
-                    <a href="{{ url('admin/pengumuman') }}">
+                    <a href="{{ url('/admin/user') }}">
                         <i class="mdi mdi-calendar-blank-outline"></i>
-                        <span>Data Pengumaman </span>
+                        <span>User</span>
                     </a>
                 </li>
+               
+                
+             
 
-                <li>
-                    <a href="{{ url('admin/kegiatan') }}">
-                        <i class="mdi mdi-forum-outline"></i>
-                        <span>Data Kegiatan </span>
-                    </a>
-                </li>
-           
-
-              <li class="menu-title mt-2">Pengaturan</li>
+              <li class="menu-title mt-2">Tempat Wisata</li>
 
 
                  <li>
                     <a href="{{ url('/admin/category') }}">
                         <i class="mdi mdi-forum-outline"></i>
-                        <span> Kategori Kegiatan </span>
+                        <span> Kategori Wisata </span>
                     </a>
                 </li>
 
-                
                 <li>
-                    <a href="{{ url('/admin/susunan') }}">
-                        <i class="mdi mdi-forum-outline"></i>
-                        <span> Susunan </span>
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="{{ url('/admin/user') }}">
+                    <a href="{{ url('admin/kegiatan') }}">
                         <i class="mdi mdi-calendar-blank-outline"></i>
-                        <span>Admin</span>
+                        <span>Data Tempat Wisata </span>
                     </a>
                 </li>
+
+                <li class="menu-title mt-2">Tempat Wisata</li>
+
+
+                <li>
+                    <a href="{{ url('admin/pengumuman') }}">
+                        <i class="mdi mdi-calendar-blank-outline"></i>
+                        <span>Data Tempat Wisata </span>
+                    </a>
+                </li>
+                
+               
+
+
+             
 
                
 

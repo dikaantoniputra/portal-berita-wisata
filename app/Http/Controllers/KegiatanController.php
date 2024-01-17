@@ -97,6 +97,7 @@ class KegiatanController extends Controller
         $company = new Kegiatan;
         $company->category_kegiatan_id = $request->category_kegiatan_id;
         $company->user_id = $id_user;
+        $company->judul = $request->judul;
         $company->slug = $slug;
         $company->deskripsi = $request->deskripsi;
         

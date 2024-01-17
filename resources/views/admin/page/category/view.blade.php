@@ -23,7 +23,7 @@
                     <tr>
                         <th>No</th>
                         <th>Name</th>
-                        <th>Judul Kegiatan</th>
+                        <th>Category Wisata</th>
         
                         <th>Action</th>
                     </tr>
