@@ -77,6 +77,10 @@ Route::get('detail', function () {
     return view('detail');
 })->name('detail');
 
+Route::get('berita', function () {
+    return view('berita');
+})->name('berita');
+
 Route::get('daftar', function () {
     return view('daftar');
 })->name('daftar');
