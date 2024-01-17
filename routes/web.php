@@ -73,25 +73,30 @@ Route::get('/comment2/delete/{id}', [CommentKegiatanController::class, 'destroy'
 
 Route::get('/', [AuthController::class, 'index'])->name('index');
 
-Route::get('about', function () {
-    return view('about');
-})->name('about');
+Route::get('detail', function () {
+    return view('detail');
+})->name('detail');
 
-Route::get('susunan', function () {
-    $foto = Susunan::all();
-    return view('susunan',compact('foto'));
-})->name('susunan');
-
-Route::get('pengumuman-all', [PengumumanController::class, 'pengumuman'])->name('pengumuman');
-Route::get('pengumuman/{slug}', [PengumumanController::class, 'detail'])->name('pengumumanetails');
-Route::get('/searchpengumuman',  [PengumumanController::class, 'pengumuman'])->name('searchpengumuman');
+Route::get('daftar', function () {
+    return view('daftar');
+})->name('daftar');
 
 
-Route::get('kegiatan-all', [KegiatanController::class, 'kegiatan'])->name('kegiatan');
-Route::get('kegiatan/{slug}', [KegiatanController::class, 'detail'])->name('kegiatanetails');
-Route::get('/searchkegiatan',  [PengumumanController::class, 'kegiatan'])->name('searchkegiatan');
+// Route::get('susunan', function () {
+//     $foto = Susunan::all();
+//     return view('susunan',compact('foto'));
+// })->name('susunan');
+
+// Route::get('pengumuman-all', [PengumumanController::class, 'pengumuman'])->name('pengumuman');
+// Route::get('pengumuman/{slug}', [PengumumanController::class, 'detail'])->name('pengumumanetails');
+// Route::get('/searchpengumuman',  [PengumumanController::class, 'pengumuman'])->name('searchpengumuman');
 
 
-Route::resource('commentspengumuman', CommetPengumumanController::class);
+// Route::get('kegiatan-all', [KegiatanController::class, 'kegiatan'])->name('kegiatan');
+// Route::get('kegiatan/{slug}', [KegiatanController::class, 'detail'])->name('kegiatanetails');
+// Route::get('/searchkegiatan',  [PengumumanController::class, 'kegiatan'])->name('searchkegiatan');
 
-Route::resource('commentskegiatan', CommentKegiatanController::class);
+
+// Route::resource('commentspengumuman', CommetPengumumanController::class);
+
+// Route::resource('commentskegiatan', CommentKegiatanController::class);

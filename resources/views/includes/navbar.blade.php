@@ -90,7 +90,7 @@
 				<ul class="header--menu-links nav navbar-nav" data-trigger="hoverIntent">
 					
 				
-					<li><a href="{{ url('admin') }}">Home</a></li>
+					<li><a href="{{ url('/') }}">Home</a></li>
 					<li class="dropdown megamenu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Catagory<i class="fa flm fa-angle-down"></i></a>
 
@@ -198,7 +198,7 @@
 							</li>
 						</ul>
 					</li>
-					<li><a href="{{ url('about') }}">About</a></li>
+					<li><a href="{{ url('/') }}">Berita</a></li>
 				
 				</ul>
 				<!-- Header Menu Links End -->

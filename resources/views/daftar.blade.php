@@ -15,8 +15,8 @@
             <!-- Login Form Start -->
             <div class="login--form">
                 <div class="title">
-                    <h1 class="h1">Login</h1>
-                    <p>Login into account by fillup the below form</p>
+                    <h1 class="h1">Daftar</h1>
+                    <p>Daftar into account by fillup the below form</p>
                 </div>
 
                 <form action="#" data-form="validate">

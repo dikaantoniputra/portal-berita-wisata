@@ -8,42 +8,7 @@
 
 @section('content')
 <!-- Posts Filter Bar Start -->
-<div class="posts--filter-bar style--1 hidden-xs">
-    <div class="container">
-        <ul class="nav">
-            <li>
-                <a href="#">
-                    <i class="fa fa-star-o"></i>
-                    <span>Featured News</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-heart-o"></i>
-                    <span>Most Popular</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-fire"></i>
-                    <span>Hot News</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-flash"></i>
-                    <span>Trending News</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-eye"></i>
-                    <span>Most Watched</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
+
 <!-- Posts Filter Bar End -->
 
 <!-- News Ticker Start -->
@@ -211,7 +176,7 @@
                         <div class="col-md-6 ptop--30 pbottom--30">
                             <!-- Post Items Title Start -->
                             <div class="post--items-title" data-ajax="tab">
-                                <h2 class="h4">Worlds News</h2>
+                                <h2 class="h4">Wisata Cagar Alam</h2>
 
                                 <div class="nav">
                                     <a href="#" class="prev btn-link" data-ajax-action="load_prev_world_news_posts">
@@ -358,7 +323,7 @@
                         <div class="col-md-6 ptop--30 pbottom--30">
                             <!-- Post Items Title Start -->
                             <div class="post--items-title" data-ajax="tab">
-                                <h2 class="h4">Technology</h2>
+                                <h2 class="h4">Wisata Keluarga</h2>
 
                                 <div class="nav">
                                     <a href="#" class="prev btn-link" data-ajax-action="load_prev_technology_posts">
@@ -507,7 +472,7 @@
                         <div class="col-md-12 ptop--30 pbottom--30">
                             <!-- Post Items Title Start -->
                             <div class="post--items-title" data-ajax="tab">
-                                <h2 class="h4">Finance</h2>
+                                <h2 class="h4">WISATA KELUARGA</h2>
 
                                 <div class="nav">
                                     <a href="#" class="prev btn-link" data-ajax-action="load_prev_finance_posts">
@@ -664,7 +629,7 @@
                         <div class="col-md-6 ptop--30 pbottom--30">
                             <!-- Post Items Title Start -->
                             <div class="post--items-title" data-ajax="tab">
-                                <h2 class="h4">Politics</h2>
+                                <h2 class="h4">WISATA BUDAYA</h2>
 
                                 <div class="nav">
                                     <a href="#" class="prev btn-link" data-ajax-action="load_prev_politics_posts">
@@ -811,7 +776,7 @@
                         <div class="col-md-6 ptop--30 pbottom--30">
                             <!-- Post Items Title Start -->
                             <div class="post--items-title" data-ajax="tab">
-                                <h2 class="h4">Sports</h2>
+                                <h2 class="h4">WISATA KULINER</h2>
 
                                 <div class="nav">
                                     <a href="#" class="prev btn-link" data-ajax-action="load_prev_sports_posts">
@@ -1195,7 +1160,7 @@
         <div class="main--content pd--30-0">
             <!-- Post Items Title Start -->
             <div class="post--items-title" data-ajax="tab">
-                <h2 class="h4">Audio &amp; Videos</h2>
+                <h2 class="h4">WISATA RELIGI</h2>
 
                 <div class="nav">
                     <a href="#" class="prev btn-link" data-ajax-action="load_prev_audio_video_posts">
