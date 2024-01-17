@@ -83,27 +83,16 @@
                     </a>
                 </li>
 
-                <li class="menu-title mt-2">Tempat Wisata</li>
+                <li class="menu-title mt-2">Berita Wisata</li>
 
 
                 <li>
                     <a href="{{ url('admin/pengumuman') }}">
                         <i class="mdi mdi-calendar-blank-outline"></i>
-                        <span>Data Tempat Wisata </span>
+                        <span>Data Berita Wisata </span>
                     </a>
-                </li>
-                
+                </li>                
                
-
-
-             
-
-               
-
-          
-
-
-         
 
               {{-- <li class="menu-title mt-2"> Pelamar </li>
 
