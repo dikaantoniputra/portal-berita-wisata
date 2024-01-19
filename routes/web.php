@@ -15,7 +15,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\CommentKegiatanController;
 use App\Http\Controllers\CategoryKegiatanController;
 use App\Http\Controllers\CommetPengumumanController;
-
+use App\Http\Controllers\WisataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,7 +71,10 @@ Route::get('/comment2/delete/{id}', [CommentKegiatanController::class, 'destroy'
 
 
 
-Route::get('/', [AuthController::class, 'index'])->name('index');
+Route::get('/', [WisataController::class, 'index'])->name('index');
+
+Route::get('kegiatan-all', [WisataController::class, 'kegiatan'])->name('kegiatan');
+Route::get('kegiatan/{slug}', [WisataController::class, 'detail'])->name('kegiatanetails');
 
 Route::get('detail', function () {
     return view('detail');
@@ -96,9 +99,8 @@ Route::get('daftar', function () {
 // Route::get('/searchpengumuman',  [PengumumanController::class, 'pengumuman'])->name('searchpengumuman');
 
 
-// Route::get('kegiatan-all', [KegiatanController::class, 'kegiatan'])->name('kegiatan');
-// Route::get('kegiatan/{slug}', [KegiatanController::class, 'detail'])->name('kegiatanetails');
-// Route::get('/searchkegiatan',  [PengumumanController::class, 'kegiatan'])->name('searchkegiatan');
+
+Route::get('/searchkegiatan',  [PengumumanController::class, 'kegiatan'])->name('searchkegiatan');
 
 
 // Route::resource('commentspengumuman', CommetPengumumanController::class);

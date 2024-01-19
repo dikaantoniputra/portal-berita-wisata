@@ -16,28 +16,10 @@
     <div class="container">
         <div class="title">
             <h2>News Updates</h2>
-            <span>(Update 12 minutes ago)</span>
+          
         </div>
 
-        <div class="news-updates--list" data-marquee="true">
-            <ul class="nav">
-                <li>
-                    <h3 class="h3"><a href="#">Contrary to popular belief Lorem Ipsum is not simply random text.</a></h3>
-                </li>
-                <li>
-                    <h3 class="h3"><a href="#">Education to popular belief Lorem Ipsum is not simply</a></h3>
-                </li>
-                <li>
-                    <h3 class="h3"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></h3>
-                </li>
-                <li>
-                    <h3 class="h3"><a href="#">Corporis repellendus perspiciatis reprehenderit.</a></h3>
-                </li>
-                <li>
-                    <h3 class="h3"><a href="#">Deleniti consequatur laudantium sit aspernatur?</a></h3>
-                </li>
-            </ul>
-        </div>
+       
     </div>
 </div>
 <!-- News Ticker End -->
@@ -52,113 +34,138 @@
                 <div class="row gutter--15">
                     <div class="col-md-6">
                         <!-- Post Item Start -->
-                        <div class="post--item post--layout-1 post--title-larger">
-                            <div class="post--img">
-                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/banner-01.jpg" alt=""></a>
-                                <a href="#" class="cat">Politics</a>
-                                <a href="#" class="icon"><i class="fa fa-flash"></i></a>
-
-                                <div class="post--map">
-                                    <p class="btn-link"><i class="fa fa-map-o"></i>Location in Google Map</p>
-
-                                    <div class="map--wrapper">
-                                        <div data-map-latitude="23.790546" data-map-longitude="90.375583" data-map-zoom="6" data-map-marker="[[23.790546, 90.375583]]"></div>
-                                    </div>
-                                </div>
-
-                                <div class="post--info">
-                                    <ul class="nav meta">
-                                        <li><a href="#">Norma R. Hogan</a></li>
-                                        <li><a href="#">20 April 2017</a></li>
-                                    </ul>
-
-                                    <div class="title">
-                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link">Siriyan civil war getting righteous indignation and dislike men who are so beguiled and demoralized by the sure.</a></h2>
+                        @if($kegiatan->isNotEmpty())
+                            @php
+                                $latestItem = $kegiatan->first();
+                            @endphp
+                            <div class="post--item post--layout-1 post--title-larger">
+                                <div class="post--img">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="thumb">
+                                        <img src="{{ asset($latestItem->gambar) }}" alt="{{ $latestItem->judul }}">
+                                    </a>
+                                    <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="cat">{{ $latestItem->category }}</a>
+                                    <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
+                    
+                                   
+                    
+                                    <div class="post--info">
+                                        <ul class="nav meta">
+                                            <li><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}">{{ $latestItem->user->username }}</a></li>
+                                            <li><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}">{{ $latestItem->created_at }}</a></li>
+                                        </ul>
+                    
+                                        <div class="title">
+                                            <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="btn-link">{{ $latestItem->judul }}</a></h2>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <!-- Post Item End -->
+                        @endif
                     </div>
+                    
 
                     <div class="col-md-6">
                         <div class="row gutter--15">
                             <div class="col-xs-6 col-xss-12">
                                 <!-- Post Item Start -->
-                                <div class="post--item post--layout-1 post--title-large">
-                                    <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/banner-02.jpg" alt=""></a>
-                                        <a href="#" class="cat">Travel</a>
-                                        <a href="#" class="icon"><i class="fa fa-flash"></i></a>
-
-                                        <div class="post--info">
-                                            <ul class="nav meta">
-                                                <li><a href="#">Corey I. Dean</a></li>
-                                                <li><a href="#">20 April 2017</a></li>
-                                            </ul>
-
-                                            <div class="title">
-                                                <h2 class="h4"><a href="news-single-v1.html" class="btn-link">Lorem Ipsum is simply dummy text of the printing</a></h2>
+                                @if($kegiatan->count() > 0)
+                                    @php
+                                        $item = $kegiatan->get(1);
+                                    @endphp
+                                    <div class="post--item post--layout-1 post--title-large">
+                                        <div class="post--img">
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
+                                                <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
+                                            </a>
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
+                            
+                                            <div class="post--info">
+                                                <ul class="nav meta">
+                                                    <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->user->username }}</a></li>
+                                                    <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
+                                                </ul>
+                            
+                                                <div class="title">
+                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{{ $item->judul }}</a></h2>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 <!-- Post Item End -->
+                                @endif
                             </div>
-
+                            
                             <div class="col-xs-6 hidden-xss">
                                 <!-- Post Item Start -->
-                                <div class="post--item post--layout-1 post--title-large">
-                                    <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/banner-03.jpg" alt=""></a>
-                                        <a href="#" class="cat">Education</a>
-                                        <a href="#" class="icon"><i class="fa fa-flash"></i></a>
-
-                                        <div class="post--map">
-                                            <p class="btn-link"><i class="fa fa-map-o"></i>Location in Google Map</p>
-
-                                            <div class="map--wrapper">
-                                                <div data-map-latitude="23.790546" data-map-longitude="90.375583" data-map-zoom="6" data-map-marker="[[23.790546, 90.375583]]"></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="post--info">
-                                            <ul class="nav meta">
-                                                <li><a href="#">Leraje</a></li>
-                                                <li><a href="#">20 April 2017</a></li>
-                                            </ul>
-
-                                            <div class="title">
-                                                <h2 class="h4"><a href="news-single-v1.html" class="btn-link">Lorem Ipsum is simply dummy text of the printing</a></h2>
+                                @if($kegiatan->count() > 1)
+                                    @php
+                                        $item = $kegiatan->get(2);
+                                    @endphp
+                                    <div class="post--item post--layout-1 post--title-large">
+                                        <div class="post--img">
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
+                                                <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
+                                            </a>
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
+                            
+                                            @if($item->has_map)
+                                                <div class="post--map">
+                                                    <p class="btn-link"><i class="fa fa-map-o"></i>Location in Google Map</p>
+                                                    <div class="map--wrapper">
+                                                        <div data-map-latitude="{{ $item->map_latitude }}" data-map-longitude="{{ $item->map_longitude }}" data-map-zoom="{{ $item->map_zoom }}" data-map-marker="[[{{ $item->map_latitude }}, {{ $item->map_longitude }}]]"></div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                            
+                                            <div class="post--info">
+                                                <ul class="nav meta">
+                                                    <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->user->username }}</a></li>
+                                                    <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
+                                                </ul>
+                            
+                                                <div class="title">
+                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{{ $item->judul }}</a></h2>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 <!-- Post Item End -->
+                                @endif
                             </div>
-
+                            
                             <div class="col-sm-12 hidden-sm hidden-xs">
                                 <!-- Post Item Start -->
-                                <div class="post--item post--layout-1 post--title-larger">
-                                    <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/banner-04.jpg" alt=""></a>
-                                        <a href="#" class="cat">Politics</a>
-                                        <a href="#" class="icon"><i class="fa fa-fire"></i></a>
-
-                                        <div class="post--info">
-                                            <ul class="nav meta">
-                                                <li><a href="#">Balam</a></li>
-                                                <li><a href="#">20 April 2017</a></li>
-                                            </ul>
-
-                                            <div class="title">
-                                                <h2 class="h4"><a href="news-single-v1.html" class="btn-link">On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the sure.</a></h2>
+                                @if($kegiatan->count() > 2)
+                                    @php
+                                        $item = $kegiatan->get(3);
+                                    @endphp
+                                    <div class="post--item post--layout-1 post--title-larger">
+                                        <div class="post--img">
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
+                                                <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
+                                            </a>
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
+                                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-fire"></i></a>
+                            
+                                            <div class="post--info">
+                                                <ul class="nav meta">
+                                                    <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->user->username }}</a></li>
+                                                    <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
+                                                </ul>
+                            
+                                                <div class="title">
+                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{{ $item->judul }}</a></h2>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 <!-- Post Item End -->
+                                @endif
                             </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -179,13 +186,13 @@
                                 <h2 class="h4">Wisata Cagar Alam</h2>
 
                                 <div class="nav">
-                                    <a href="#" class="prev btn-link" data-ajax-action="load_prev_world_news_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="prev btn-link" data-ajax-action="load_prev_world_news_posts">
                                         <i class="fa fa-long-arrow-left"></i>
                                     </a>
 
                                     <span class="divider">/</span>
 
-                                    <a href="#" class="next btn-link" data-ajax-action="load_next_world_news_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="next btn-link" data-ajax-action="load_next_world_news_posts">
                                         <i class="fa fa-long-arrow-right"></i>
                                     </a>
                                 </div>
@@ -199,18 +206,18 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-1">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-01.jpg" alt=""></a>
-                                                <a href="#" class="cat">War</a>
-                                                <a href="#" class="icon"><i class="fa fa-flash"></i></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-01.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">War</a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Astaroth</a></li>
-                                                        <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Astaroth</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Yeasterday 03:52 pm</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Siriya attaced by a long established fact that a reader will be distracted by</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Siriya attaced by a long established fact that a reader will be distracted by</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,16 +233,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-02.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-02.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Hantu Raya</a></li>
-                                                        <li><a href="#">17 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Hantu Raya</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">17 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will done</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will done</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -246,16 +253,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-03.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-03.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Astaroth</a></li>
-                                                        <li><a href="#">17 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Astaroth</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">17 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will done</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will done</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -271,16 +278,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-04.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-04.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Astaroth</a></li>
-                                                        <li><a href="#">17 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Astaroth</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">17 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will done</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will done</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -291,16 +298,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-05.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/world-news-05.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Hantu Raya</a></li>
-                                                        <li><a href="#">17 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Hantu Raya</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">17 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will done</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will done</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -326,13 +333,13 @@
                                 <h2 class="h4">Wisata Keluarga</h2>
 
                                 <div class="nav">
-                                    <a href="#" class="prev btn-link" data-ajax-action="load_prev_technology_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="prev btn-link" data-ajax-action="load_prev_technology_posts">
                                         <i class="fa fa-long-arrow-left"></i>
                                     </a>
 
                                     <span class="divider">/</span>
 
-                                    <a href="#" class="next btn-link" data-ajax-action="load_next_technology_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="next btn-link" data-ajax-action="load_next_technology_posts">
                                         <i class="fa fa-long-arrow-right"></i>
                                     </a>
                                 </div>
@@ -346,18 +353,18 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-1">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-01.jpg" alt=""></a>
-                                                <a href="#" class="cat">Computer</a>
-                                                <a href="#" class="icon"><i class="fa fa-heart-o"></i></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-01.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">Computer</a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-heart-o"></i></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bathin</a></li>
-                                                        <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bathin</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Yeasterday 03:52 pm</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will be distracted by</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will be distracted by</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -368,16 +375,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-02.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-02.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bune</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bune</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -388,16 +395,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-03.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-03.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bune</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bune</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -408,16 +415,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-04.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-04.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bune</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bune</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -428,16 +435,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-05.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/technology-05.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bune</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bune</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -460,7 +467,7 @@
                         <div class="col-md-12 ptop--30 pbottom--30">
                             <!-- Advertisement Start -->
                             <div class="ad--space">
-                                <a href="#">
+                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                     <img src="{{ asset('') }}portal/img/ads-img/ad-728x90-01.jpg" alt="" class="center-block">
                                 </a>
                             </div>
@@ -475,13 +482,13 @@
                                 <h2 class="h4">WISATA KELUARGA</h2>
 
                                 <div class="nav">
-                                    <a href="#" class="prev btn-link" data-ajax-action="load_prev_finance_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="prev btn-link" data-ajax-action="load_prev_finance_posts">
                                         <i class="fa fa-long-arrow-left"></i>
                                     </a>
 
                                     <span class="divider">/</span>
 
-                                    <a href="#" class="next btn-link" data-ajax-action="load_next_finance_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="next btn-link" data-ajax-action="load_next_finance_posts">
                                         <i class="fa fa-long-arrow-right"></i>
                                     </a>
                                 </div>
@@ -495,18 +502,18 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-01.jpg" alt=""></a>
-                                                <a href="#" class="cat">Business</a>
-                                                <a href="#" class="icon"><i class="fa fa-star-o"></i></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-01.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">Business</a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-star-o"></i></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Vassago</a></li>
-                                                        <li><a href="#">Today 03:30 am</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Vassago</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Today 03:30 am</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -526,16 +533,16 @@
                                                 <!-- Post Item Start -->
                                                 <div class="post--item post--layout-2">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-02.jpg" alt=""></a>
+                                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-02.jpg" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Zepar</a></li>
-                                                                <li><a href="#">Today 03:52 pm</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Zepar</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Today 03:52 pm</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will be</a></h3>
+                                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will be</a></h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -547,16 +554,16 @@
                                                 <!-- Post Item Start -->
                                                 <div class="post--item post--layout-2">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-03.jpg" alt=""></a>
+                                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-03.jpg" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Demiurge</a></li>
-                                                                <li><a href="#">Today 03:02 pm</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Demiurge</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Today 03:02 pm</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will be</a></h3>
+                                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will be</a></h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -574,16 +581,16 @@
                                                 <!-- Post Item Start -->
                                                 <div class="post--item post--layout-2">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-04.jpg" alt=""></a>
+                                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-04.jpg" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Demiurge</a></li>
-                                                                <li><a href="#">Today 02:05 am</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Demiurge</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Today 02:05 am</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will be</a></h3>
+                                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will be</a></h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -595,16 +602,16 @@
                                                 <!-- Post Item Start -->
                                                 <div class="post--item post--layout-2">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-05.jpg" alt=""></a>
+                                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/finance-05.jpg" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Zepar</a></li>
-                                                                <li><a href="#">Today 12:35 am</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Zepar</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Today 12:35 am</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will be</a></h3>
+                                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will be</a></h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -632,13 +639,13 @@
                                 <h2 class="h4">WISATA BUDAYA</h2>
 
                                 <div class="nav">
-                                    <a href="#" class="prev btn-link" data-ajax-action="load_prev_politics_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="prev btn-link" data-ajax-action="load_prev_politics_posts">
                                         <i class="fa fa-long-arrow-left"></i>
                                     </a>
 
                                     <span class="divider">/</span>
 
-                                    <a href="#" class="next btn-link" data-ajax-action="load_next_politics_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="next btn-link" data-ajax-action="load_next_politics_posts">
                                         <i class="fa fa-long-arrow-right"></i>
                                     </a>
                                 </div>
@@ -652,18 +659,18 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-1">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-01.jpg" alt=""></a>
-                                                <a href="#" class="cat">Election</a>
-                                                <a href="#" class="icon"><i class="fa fa-fire"></i></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-01.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">Election</a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-fire"></i></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Astaroth</a></li>
-                                                        <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Astaroth</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Yeasterday 03:52 pm</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will be distracted by</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will be distracted by</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -679,16 +686,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-02.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-02.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Hantu Raya</a></li>
-                                                        <li><a href="#">17 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Hantu Raya</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">17 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will done</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will done</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -699,16 +706,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-03.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-03.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Astaroth</a></li>
-                                                        <li><a href="#">17 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Astaroth</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">17 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will done</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will done</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -724,16 +731,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-04.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-04.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Astaroth</a></li>
-                                                        <li><a href="#">17 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Astaroth</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">17 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will done</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will done</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -744,16 +751,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-2">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-05.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-05.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Hantu Raya</a></li>
-                                                        <li><a href="#">17 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Hantu Raya</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">17 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will done</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will done</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -779,13 +786,13 @@
                                 <h2 class="h4">WISATA KULINER</h2>
 
                                 <div class="nav">
-                                    <a href="#" class="prev btn-link" data-ajax-action="load_prev_sports_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="prev btn-link" data-ajax-action="load_prev_sports_posts">
                                         <i class="fa fa-long-arrow-left"></i>
                                     </a>
 
                                     <span class="divider">/</span>
 
-                                    <a href="#" class="next btn-link" data-ajax-action="load_next_sports_posts">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="next btn-link" data-ajax-action="load_next_sports_posts">
                                         <i class="fa fa-long-arrow-right"></i>
                                     </a>
                                 </div>
@@ -799,18 +806,18 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-1">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-01.jpg" alt=""></a>
-                                                <a href="#" class="cat">Basketball</a>
-                                                <a href="#" class="icon"><i class="fa fa-eye"></i></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-01.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">Basketball</a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-eye"></i></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bathin</a></li>
-                                                        <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bathin</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Yeasterday 03:52 pm</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">It is a long established fact that a reader will be distracted by</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">It is a long established fact that a reader will be distracted by</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -821,16 +828,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-02.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-02.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bune</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bune</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -841,16 +848,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-03.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-03.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bune</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bune</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -861,16 +868,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-04.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-04.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bune</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bune</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -881,16 +888,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-05.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/sports-05.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Bune</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Bune</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -920,7 +927,7 @@
                     <div class="widget">
                         <!-- Ad Widget Start -->
                         <div class="ad--widget">
-                            <a href="#">
+                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                 <img src="{{ asset('') }}portal/img/ads-img/ad-300x250-1.jpg" alt="">
                             </a>
                         </div>
@@ -939,42 +946,42 @@
                         <div class="social--widget style--1">
                             <ul class="nav">
                                 <li class="facebook">
-                                    <a href="#">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                         <span class="icon"><i class="fa fa-facebook-f"></i></span>
                                         <span class="count">521</span>
                                         <span class="title">Likes</span>
                                     </a>
                                 </li>
                                 <li class="twitter">
-                                    <a href="#">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                         <span class="icon"><i class="fa fa-twitter"></i></span>
                                         <span class="count">3297</span>
                                         <span class="title">Followers</span>
                                     </a>
                                 </li>
                                 <li class="google-plus">
-                                    <a href="#">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                         <span class="icon"><i class="fa fa-google-plus"></i></span>
                                         <span class="count">596282</span>
                                         <span class="title">Followers</span>
                                     </a>
                                 </li>
                                 <li class="rss">
-                                    <a href="#">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                         <span class="icon"><i class="fa fa-rss"></i></span>
                                         <span class="count">521</span>
                                         <span class="title">Subscriber</span>
                                     </a>
                                 </li>
                                 <li class="vimeo">
-                                    <a href="#">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                         <span class="icon"><i class="fa fa-vimeo"></i></span>
                                         <span class="count">3297</span>
                                         <span class="title">Followers</span>
                                     </a>
                                 </li>
                                 <li class="youtube">
-                                    <a href="#">
+                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                         <span class="icon"><i class="fa fa-youtube-square"></i></span>
                                         <span class="count">596282</span>
                                         <span class="title">Subscriber</span>
@@ -1027,13 +1034,13 @@
                             <div class="list--widget-nav" data-ajax="tab">
                                 <ul class="nav nav-justified">
                                     <li>
-                                        <a href="#" data-ajax-action="load_widget_hot_news">Hot News</a>
+                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" data-ajax-action="load_widget_hot_news">Hot News</a>
                                     </li>
                                     <li class="active">
-                                        <a href="#" data-ajax-action="load_widget_trendy_news">Trendy News</a>
+                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" data-ajax-action="load_widget_trendy_news">Trendy News</a>
                                     </li>
                                     <li>
-                                        <a href="#" data-ajax-action="load_widget_most_watched">Most Watched</a>
+                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" data-ajax-action="load_widget_most_watched">Most Watched</a>
                                     </li>
                                 </ul>
                             </div>
@@ -1045,16 +1052,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/widgets-img/news-widget-01.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/widgets-img/news-widget-01.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Ninurta</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Ninurta</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1065,16 +1072,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/widgets-img/news-widget-02.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/widgets-img/news-widget-02.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Orcus</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Orcus</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1085,16 +1092,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/widgets-img/news-widget-03.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/widgets-img/news-widget-03.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Rahab</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Rahab</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1105,16 +1112,16 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/widgets-img/news-widget-04.jpg" alt=""></a>
+                                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/widgets-img/news-widget-04.jpg" alt=""></a>
 
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Tannin</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Tannin</a></li>
+                                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted</a></h3>
+                                                        <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1144,7 +1151,7 @@
 
                         <!-- Ad Widget Start -->
                         <div class="ad--widget">
-                            <a href="#">
+                            <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">
                                 <img src="{{ asset('') }}portal/img/ads-img/ad-300x250-2.jpg" alt="">
                             </a>
                         </div>
@@ -1163,13 +1170,13 @@
                 <h2 class="h4">WISATA RELIGI</h2>
 
                 <div class="nav">
-                    <a href="#" class="prev btn-link" data-ajax-action="load_prev_audio_video_posts">
+                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="prev btn-link" data-ajax-action="load_prev_audio_video_posts">
                         <i class="fa fa-long-arrow-left"></i>
                     </a>
 
                     <span class="divider">/</span>
 
-                    <a href="#" class="next btn-link" data-ajax-action="load_next_audio_video_posts">
+                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="next btn-link" data-ajax-action="load_next_audio_video_posts">
                         <i class="fa fa-long-arrow-right"></i>
                     </a>
                 </div>
@@ -1183,18 +1190,18 @@
                         <!-- Post Item Start -->
                         <div class="post--item post--layout-1 post--type-video post--title-large">
                             <div class="post--img">
-                                <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-01.jpg" alt=""></a>
-                                <a href="#" class="cat">Wave</a>
-                                <a href="#" class="icon"><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-01.jpg" alt=""></a>
+                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">Wave</a>
+                                <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-eye"></i></a>
 
                                 <div class="post--info">
                                     <ul class="nav meta">
-                                        <li><a href="#">Succubus</a></li>
-                                        <li><a href="#">Today 03:52 pm</a></li>
+                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Succubus</a></li>
+                                        <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Today 03:52 pm</a></li>
                                     </ul>
 
                                     <div class="title">
-                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link">Standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum</a></h2>
+                                        <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum</a></h2>
                                     </div>
                                 </div>
                             </div>
@@ -1212,16 +1219,16 @@
                                 <!-- Post Item Start -->
                                 <div class="post--item post--type-audio post--layout-3">
                                     <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-02.jpg" alt=""></a>
+                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-02.jpg" alt=""></a>
 
                                         <div class="post--info">
                                             <ul class="nav meta">
-                                                <li><a href="#">Maclaan John</a></li>
-                                                <li><a href="#">16 April 2017</a></li>
+                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Maclaan John</a></li>
+                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                             </ul>
 
                                             <div class="title">
-                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                             </div>
                                         </div>
                                     </div>
@@ -1232,16 +1239,16 @@
                                 <!-- Post Item Start -->
                                 <div class="post--item post--type-video post--layout-3">
                                     <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-03.jpg" alt=""></a>
+                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-03.jpg" alt=""></a>
 
                                         <div class="post--info">
                                             <ul class="nav meta">
-                                                <li><a href="#">Maclaan John</a></li>
-                                                <li><a href="#">16 April 2017</a></li>
+                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Maclaan John</a></li>
+                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                             </ul>
 
                                             <div class="title">
-                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                             </div>
                                         </div>
                                     </div>
@@ -1252,16 +1259,16 @@
                                 <!-- Post Item Start -->
                                 <div class="post--item post--type-video post--layout-3">
                                     <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-04.jpg" alt=""></a>
+                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-04.jpg" alt=""></a>
 
                                         <div class="post--info">
                                             <ul class="nav meta">
-                                                <li><a href="#">Maclaan John</a></li>
-                                                <li><a href="#">16 April 2017</a></li>
+                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Maclaan John</a></li>
+                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                             </ul>
 
                                             <div class="title">
-                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                             </div>
                                         </div>
                                     </div>
@@ -1272,16 +1279,16 @@
                                 <!-- Post Item Start -->
                                 <div class="post--item post--type-audio post--layout-3">
                                     <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-05.jpg" alt=""></a>
+                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/audio-video-05.jpg" alt=""></a>
 
                                         <div class="post--info">
                                             <ul class="nav meta">
-                                                <li><a href="#">Maclaan John</a></li>
-                                                <li><a href="#">16 April 2017</a></li>
+                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">Maclaan John</a></li>
+                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">16 April 2017</a></li>
                                             </ul>
 
                                             <div class="title">
-                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
+                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">Long established fact that a reader will be distracted by the readable</a></h3>
                                             </div>
                                         </div>
                                     </div>
