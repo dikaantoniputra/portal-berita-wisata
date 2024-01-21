@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Kegiatan extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
 
     public function user()
     {

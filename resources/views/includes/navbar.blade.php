@@ -63,11 +63,7 @@
 			<!-- Header Logo End -->
 
 			<!-- Header Ad Start -->
-			<div class="header--ad float--right float--sm-none hidden-xs">
-				<a href="#">
-					<img src="{{ asset('') }}portal/img/ads-img/ad-728x90-01.jpg" alt="Advertisement">
-				</a>
-			</div>
+			
 			<!-- Header Ad End -->
 		</div>
 	</div>

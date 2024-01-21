@@ -20,7 +20,7 @@ class CreateKegiatansTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('slug')->unique();
             $table->string('judul')->nullable();
-            $table->text('deskripsi');
+            $table->text('deskripsi')->nullable();
             $table->string('gambar')->nullable();
             $table->timestamps();
         });

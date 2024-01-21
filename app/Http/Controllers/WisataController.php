@@ -21,6 +21,9 @@ class WisataController extends Controller
     {
         $kegiatankategori = CategoryKegiatan::all();
         $kegiatan = Kegiatan::all();
+
+      
+
         return view('index', compact('kegiatankategori','kegiatan'));
     }
 
