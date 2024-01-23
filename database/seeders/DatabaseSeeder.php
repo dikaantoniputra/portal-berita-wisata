@@ -2,7 +2,12 @@
 
 namespace Database\Seeders;
 
+
+use Database\Seeders\KegiatansTableSeeder;
+
 use Illuminate\Database\Seeder;
+use Database\Seeders\CategoryKegiatansTableSeeder;
+use Database\Seeders\UsersTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +20,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UsersTableSeeder::class,
+            CategoryKegiatansTableSeeder::class,
+            KegiatansTableSeeder::class,
         ]);
 
     }

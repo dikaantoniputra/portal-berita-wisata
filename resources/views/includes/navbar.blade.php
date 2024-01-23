@@ -17,7 +17,7 @@
 	</div>
 	<!-- Header Topbar End -->
 
-	<!-- Header Navbar Start -->
+
 	<div class="header--navbar style--1 navbar bd--color-1 bg--color-1" data-trigger="sticky">
 		<div class="container">
 			<div class="navbar-header">
@@ -34,9 +34,10 @@
 				<ul class="header--menu-links nav navbar-nav" data-trigger="hoverIntent">
 					
 				
-					<li><a href="{{ url('admin') }}">Home</a></li>
-					<li class="dropdown menu">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategori<i class="fa flm fa-angle-down"></i></a>
+					<li><a href="{{ url('/') }}">Home</a></li>
+					<li class="dropdown megamenu">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Catagory<i class="fa flm fa-angle-down"></i></a>
+
 
 						<ul class="dropdown-menu">
 							<li class="dropdown">
@@ -93,6 +94,8 @@
 							</li>
 						</ul>
 					</li>
+					<li><a href="{{ url('/') }}">Berita</a></li>
+
 				
 				</ul>
 				<!-- Header Menu Links End -->

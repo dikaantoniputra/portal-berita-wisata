@@ -281,14 +281,6 @@ class KegiatanController extends Controller
         ]);
     }
 
-public function detail($slug)
-    {
-       
-        $kegiatan = Kegiatan::where('slug', $slug)->firstOrFail();
-        $filekegiatan = FileKegiatan::where('kegiatan_id', $kegiatan->id)->get();
-        $commen = CommentKegiatan::where('kegiatan_id', $kegiatan->id)->get();
-        return view('detailkegiatan', compact('kegiatan','filekegiatan','commen'));
-    }
 
 
 
