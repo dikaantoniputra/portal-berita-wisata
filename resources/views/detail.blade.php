@@ -52,7 +52,7 @@
 
                       
                         <div class="post--content">
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition words etc.</p>
+                            <p>{!! $kegiatan->deskripsi !!}</p>
 
                         
                         </div>
@@ -222,101 +222,40 @@
                         <div class="list--widget list--widget-1">
                             <div class="list--widget-nav" data-ajax="tab">
                                 <ul class="nav nav-justified">
-                                    <li>
-                                        <a href="#" data-ajax-action="load_widget_hot_news">Hot News</a>
-                                    </li>
+                                   
                                     <li class="active">
                                         <a href="#" data-ajax-action="load_widget_trendy_news">Trendy News</a>
                                     </li>
-                                    <li>
-                                        <a href="#" data-ajax-action="load_widget_most_watched">Most Watched</a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
 
                             <!-- Post Items Start -->
                             <div class="post--items post--items-3" data-ajax-content="outer">
                                 <ul class="nav" data-ajax-content="inner">
+                                    @foreach ($kegiatanall->take(5) as $additionalItem)
                                     <li>
-                                        <!-- Post Item Start -->
+                                        <!-- Additional Post Item Start -->
                                         <div class="post--item post--layout-3">
                                             <div class="post--img">
-                                                <a href="#" class="thumb"><img src="img/widgets-img/news-widget-01.jpg" alt=""></a>
-
+                                                <a href="#" class="thumb"><img src="{{ asset($additionalItem->gambar) }}" alt=""></a>
+                                
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Ninurta</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
+                                                        <li><a href="#">{{ $additionalItem->company->name }}</a></li>
+                                                        <li><a href="#">{{ $additionalItem->created_at }}</a></li>
                                                     </ul>
-
+                                
                                                     <div class="title">
-                                                        <h3 class="h4"><a href="#" class="btn-link">Long established fact that a reader will be distracted</a></h3>
+                                                        <h3 class="h4"><a href="#" class="btn-link">{{ $additionalItem->judul }}</a></h3>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- Post Item End -->
+                                        <!-- Additional Post Item End -->
                                     </li>
-                                    <li>
-                                        <!-- Post Item Start -->
-                                        <div class="post--item post--layout-3">
-                                            <div class="post--img">
-                                                <a href="#" class="thumb"><img src="img/widgets-img/news-widget-02.jpg" alt=""></a>
-
-                                                <div class="post--info">
-                                                    <ul class="nav meta">
-                                                        <li><a href="#">Orcus</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
-                                                    </ul>
-
-                                                    <div class="title">
-                                                        <h3 class="h4"><a href="#" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Post Item End -->
-                                    </li>
-                                    <li>
-                                        <!-- Post Item Start -->
-                                        <div class="post--item post--layout-3">
-                                            <div class="post--img">
-                                                <a href="#" class="thumb"><img src="img/widgets-img/news-widget-03.jpg" alt=""></a>
-
-                                                <div class="post--info">
-                                                    <ul class="nav meta">
-                                                        <li><a href="#">Rahab</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
-                                                    </ul>
-
-                                                    <div class="title">
-                                                        <h3 class="h4"><a href="#" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Post Item End -->
-                                    </li>
-                                    <li>
-                                        <!-- Post Item Start -->
-                                        <div class="post--item post--layout-3">
-                                            <div class="post--img">
-                                                <a href="#" class="thumb"><img src="img/widgets-img/news-widget-04.jpg" alt=""></a>
-
-                                                <div class="post--info">
-                                                    <ul class="nav meta">
-                                                        <li><a href="#">Tannin</a></li>
-                                                        <li><a href="#">16 April 2017</a></li>
-                                                    </ul>
-
-                                                    <div class="title">
-                                                        <h3 class="h4"><a href="#" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Post Item End -->
-                                    </li>
+                                @endforeach
+                                
                                 </ul>
 
                                 <!-- Preloader Start -->
