@@ -158,7 +158,7 @@
                     <div class="comment--form pd--30-0">
                         <!-- Post Items Title Start -->
                         <div class="post--items-title">
-                            <h2 class="h4">Leave A Comment</h2>
+                            <h2 class="h4">Komentar</h2>
 
                             <i class="icon fa fa-pencil-square-o"></i>
                         </div>
