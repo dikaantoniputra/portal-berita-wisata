@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    BUMDES | Home
+    Jancok | Home
     
 @endsection
 
