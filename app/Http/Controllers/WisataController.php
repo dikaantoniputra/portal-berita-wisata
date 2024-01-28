@@ -37,7 +37,8 @@ class WisataController extends Controller
         $kegiatan = Kegiatan::where('slug', $slug)->firstOrFail();
         $filekegiatan = FileKegiatan::where('kegiatan_id', $kegiatan->id)->get();
         $commen = CommentKegiatan::where('kegiatan_id', $kegiatan->id)->get();
-        return view('detail', compact('kegiatan','filekegiatan','commen'));
+        $kegiatanall = Kegiatan::all();
+        return view('detail', compact('kegiatan','filekegiatan','commen','kegiatanall'));
     }
 
 }
