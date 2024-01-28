@@ -36,7 +36,7 @@
 				
 					<li><a href="{{ url('/') }}">Home</a></li>
 					<li class="dropdown megamenu">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Catagory<i class="fa flm fa-angle-down"></i></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Kategori<i class="fa flm fa-angle-down"></i></a>
 
 
 						<ul class="dropdown-menu">
