@@ -40,7 +40,7 @@
                             <div class="post--item post--layout-1 post--title-larger">
                                 <div class="post--img">
                                     <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="thumb">
-                                        <img src="{{ asset($latestItem->gambar) }}" alt="{{ $latestItem->judul }}">
+                                        <img src="{{ asset('uploads/' . $latestItem->gambar) }}" alt="{{ $latestItem->judul }}">
                                     </a>
                                     <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="cat">{{ $latestItem->category }}</a>
                                     <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
@@ -203,7 +203,7 @@
                                                 <div class="post--item post--layout-2">
                                                     <div class="post--img">
                                                         <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
-                                                            <img src="{{ asset($item->gambar) }}" alt="">
+                                                            <img src="{{ asset('uploads/' . $item->gambar) }}" alt="">
                                                         </a>
                                     
                                                         <div class="post--info">

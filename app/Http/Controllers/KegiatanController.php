@@ -101,12 +101,13 @@ class KegiatanController extends Controller
         $company->slug = $slug;
         $company->deskripsi = $request->deskripsi;
         
-        //fungsinya untuk menyimpan gambar pada tabel file_kegiatan
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = $file->getClientOriginalName();
-            $path = $file->storeAs('public/images', $filename);
-            $company->gambar = 'storage/images/' . $filename;
+    
+
+        if ($request->hasFile('gambar') && $request->file('gambar')->isValid()) {
+            $logoFile = $request->file('gambar');
+            $logoFileName = 'gambar' . time() . '.' . $logoFile->getClientOriginalExtension();
+            $logoFile->move(public_path('uploads/'), $logoFileName);
+            $company->gambar = $logoFileName;
         }
     
         $company->save();
@@ -189,11 +190,13 @@ class KegiatanController extends Controller
         $kegiatan->user_id = $id_user;
         $kegiatan->deskripsi = $request->deskripsi;
     
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = $file->getClientOriginalName();
-            $path = $file->storeAs('public/images', $filename);
-            $kegiatan->gambar = 'storage/images/' . $filename;
+  
+
+        if ($request->hasFile('gambar') && $request->file('gambar')->isValid()) {
+            $logoFile = $request->file('gambar');
+            $logoFileName = 'gambar' . time() . '.' . $logoFile->getClientOriginalExtension();
+            $logoFile->move(public_path('uploads/'), $logoFileName);
+            $kegiatan->gambar = $logoFileName;
         }
     
         $kegiatan->save();
