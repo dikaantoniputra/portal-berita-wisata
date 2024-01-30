@@ -113,15 +113,17 @@ class KegiatanController extends Controller
         $company->save();
 
 
-        if ($request->hasFile('file_kegiatans')) {
+         if ($request->hasFile('file_kegiatans')) {
             foreach ($request->file('file_kegiatans') as $file) {
                 $nama_file = $file->getClientOriginalName();
-                $path = $file->store('public/gambar');
-
+        
+                // Move the file to the public directory
+                $file->move(public_path('gambar'), $nama_file);
+        
                 $fileMateri = new FileKegiatan;
                 $fileMateri->kegiatan_id = $company->id;
                 $fileMateri->nama_file = $nama_file;
-                $fileMateri->lokasi_file = 'storage/' . substr($path, 7);
+                $fileMateri->lokasi_file = 'gambar/' . $nama_file; // Adjust the path accordingly
                 $fileMateri->save();
             }
         }
@@ -189,6 +191,7 @@ class KegiatanController extends Controller
         $kegiatan->category_kegiatan_id = $request->category_kegiatan_id;
         $kegiatan->user_id = $id_user;
         $kegiatan->deskripsi = $request->deskripsi;
+        $kegiatan->judul = $request->judul;
     
   
 
@@ -206,15 +209,18 @@ class KegiatanController extends Controller
         if ($request->hasFile('file_kegiatans')) {
             foreach ($request->file('file_kegiatans') as $file) {
                 $nama_file = $file->getClientOriginalName();
-                $path = $file->store('public/gambar');
-
+        
+                // Move the file to the public directory
+                $file->move(public_path('gambar'), $nama_file);
+        
                 $fileMateri = new FileKegiatan;
                 $fileMateri->kegiatan_id = $kegiatan->id;
                 $fileMateri->nama_file = $nama_file;
-                $fileMateri->lokasi_file = 'storage/' . substr($path, 7);
+                $fileMateri->lokasi_file = 'gambar/' . $nama_file; // Adjust the path accordingly
                 $fileMateri->save();
             }
         }
+        
     
         // Redirect ke halaman lain atau tampilkan pesan sukses
         return redirect()->route('kegiatan.index')->with('success', 'Data kegiatan berhasil diperbarui.');
