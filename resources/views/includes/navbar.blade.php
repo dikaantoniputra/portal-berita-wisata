@@ -8,9 +8,24 @@
 
 			<div class="float--right float--xs-none text-xs-center">
 				<!-- Header Topbar Action Start -->
+				@if(auth()->check())
 				<ul class="header--topbar-action nav">
-					<li><a href="{{ url('daftar') }}"><i class="fa fm fa-user-o"></i>Login</a></li>
+					<li><a href="{{ url('/') }}"><i class="fa fm fa-user-o"></i>{{ auth()->user()->username }}</a></li>
+					
+					<li><form action="/logout" method="POST">
+						@csrf
+					  <button class="dropdown-item notify-item" type="submit">
+						  <i class="fe-log-out"></i>
+						  <span>Logout</span>
+					  </button>
+					</form></li>
 				</ul>
+			@else
+				<ul class="header--topbar-action nav">
+					<li><a href="{{ url('login') }}"><i class="fa fm fa-user-o"></i>Login</a></li>
+				</ul>
+			@endif
+
 				<!-- Header Topbar Action End -->
 			</div>
 		</div>

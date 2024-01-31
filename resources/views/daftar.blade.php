@@ -19,34 +19,28 @@
                     <p>Daftar into account by fillup the below form</p>
                 </div>
 
-                <form action="#" data-form="validate">
+                <form method="POST" action="{{ route('user.store') }}" id="form" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <label>
                             <span>Username or Email Address</span>
-                            <input type="email" name="email" class="form-control" required>
+                            <input type="email" class="form-control" name="username" required>
                         </label>
                     </div>
 
                     <div class="form-group">
                         <label>
                             <span>Password</span>
-                            <input type="password" name="password" class="form-control" required>
+                            <input type="password"  class="form-control" name="password" required>
                         </label>
                     </div>
+                    <input type="hidden" class="form-control" name="role" required>
 
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" name="rememberme">
-                            <span>Remember me</span>
-                        </label>
-                    </div>
+                   
 
-                    <button type="submit" class="btn btn-lg btn-block btn-primary">Log in</button>
+                    <button type="submit" class="btn btn-lg btn-block btn-primary">Daftar </button>
 
-                    <p class="help-block clearfix">
-                        <a href="#" class="btn-link pull-left">Forgot Username or Password?</a>
-                        <a href="#" class="btn-link pull-right">Create An Account</a>
-                    </p>
+                 
                 </form>
             </div>
             <!-- Login Form End -->

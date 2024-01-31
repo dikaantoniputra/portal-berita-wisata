@@ -74,12 +74,14 @@ class UserControler extends Controller
         $validatedData = $request->validate([
             'username' => 'required',
             'password' => 'required',
+          
         ]);
     
         // Simpan data ke database
         $perusahaan = new User();
         $perusahaan->username = $request->input('username');
         $perusahaan->password = bcrypt($request->input('password'));
+     
         // Jika ada lebih banyak kolom yang perlu disimpan, tambahkan di sini
         $perusahaan->save();
     

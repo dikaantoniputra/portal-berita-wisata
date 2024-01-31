@@ -53,6 +53,10 @@
                                     </div>
                                 </form>
 
+                                <p class="help-block clearfix">
+                                    <a href="{{ url('daftar') }}" class="btn-link pull-right">Create An Account</a>
+                                </p>
+
                                 {{-- capca --}}
                                 
                                 

@@ -21,7 +21,7 @@
                         Looks good!
                     </div>
                 </div>
-                
+                <input type="hidden" class="form-control" name="role" required>
 
             
 
