@@ -76,13 +76,15 @@ Route::get('/', [WisataController::class, 'index'])->name('index');
 Route::get('kegiatan-all', [WisataController::class, 'kegiatan'])->name('kegiatan');
 Route::get('kegiatan/{slug}', [WisataController::class, 'detail'])->name('kegiatanetails');
 
-Route::get('detail', function () {
-    return view('detail');
-})->name('detail');
+// Route::get('detail', function () {
+//     return view('detail');
+// })->name('detail');
 
-Route::get('berita', function () {
-    return view('berita');
-})->name('berita');
+Route::get('berita-all', [PengumumanController::class, 'pengumuman'])->name('pengumuman');
+Route::get('berita/{slug}', [PengumumanController::class, 'detail'])->name('pengumumanetails');
+Route::get('/searchpengumuman',  [PengumumanController::class, 'pengumuman'])->name('searchpengumuman');
+
+// 
 
 Route::get('daftar', function () {
     return view('daftar');

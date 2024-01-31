@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kegiatan;
 use App\Models\Pengumuman;
 use Illuminate\Support\Str;
+use App\Models\FileKegiatan;
+
 use Illuminate\Http\Request;
 use App\Models\FilePengumuman;
-
 use App\Models\CommetPengumuman;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\DB;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Pagination\Paginator;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -115,15 +117,30 @@ class PengumumanController extends Controller
         if ($request->hasFile('file_pengumumen')) {
             foreach ($request->file('file_pengumumen') as $file) {
                 $nama_file = $file->getClientOriginalName();
-                $path = $file->store('public/gambar');
+                $file->move(public_path('gambar'), $nama_file);
 
                 $fileMateri = new FilePengumuman;
                 $fileMateri->pengumuman_id = $company->id;
                 $fileMateri->nama_file = $nama_file;
-                $fileMateri->lokasi_file = 'storage/' . substr($path, 7);
+                $fileMateri->lokasi_file = 'gambar/' . $nama_file; // Adjust the path accordingly
                 $fileMateri->save();
             }
         }
+
+        // if ($request->hasFile('file_kegiatans')) {
+        //     foreach ($request->file('file_kegiatans') as $file) {
+        //         $nama_file = $file->getClientOriginalName();
+        
+        //         // Move the file to the public directory
+        //         $file->move(public_path('gambar'), $nama_file);
+        
+        //         $fileMateri = new FileKegiatan;
+        //         $fileMateri->kegiatan_id = $kegiatan->id;
+        //         $fileMateri->nama_file = $nama_file;
+        //         $fileMateri->lokasi_file = 'gambar/' . $nama_file; // Adjust the path accordingly
+        //         $fileMateri->save();
+        //     }
+        // }
 
       
 
@@ -197,15 +214,28 @@ class PengumumanController extends Controller
         if ($request->hasFile('file_pengumumen')) {
             foreach ($request->file('file_pengumumen') as $file) {
                 $nama_file = $file->getClientOriginalName();
-                $path = $file->store('public/gambar');
+                $file->move(public_path('gambar'), $nama_file);
 
                 $fileMateri = new FilePengumuman;
                 $fileMateri->pengumuman_id = $pengumuman->id;
                 $fileMateri->nama_file = $nama_file;
-                $fileMateri->lokasi_file = 'storage/' . substr($path, 7);
+                $fileMateri->lokasi_file = 'gambar/' . $nama_file; // Adjust the path accordingly
                 $fileMateri->save();
             }
         }
+
+        // if ($request->hasFile('file_pengumumen')) {
+        //     foreach ($request->file('file_pengumumen') as $file) {
+        //         $nama_file = $file->getClientOriginalName();
+        //         $path = $file->store('public/gambar');
+
+        //         $fileMateri = new FilePengumuman;
+        //         $fileMateri->pengumuman_id = $pengumuman->id;
+        //         $fileMateri->nama_file = $nama_file;
+        //         $fileMateri->lokasi_file = 'storage/' . substr($path, 7);
+        //         $fileMateri->save();
+        //     }
+        // }
 
         return redirect()->route('pengumuman.index')->with('success', 'Data pengumuman berhasil diperbarui.');
     }
@@ -251,10 +281,10 @@ class PengumumanController extends Controller
 
     
         $commen = CommetPengumuman::all();
-        $pengumuman = $pengumuman->paginate(6);
+        $pengumuman = $pengumuman->paginate(4);
         $currentPage = $pengumuman->currentPage();
  
-        return view('pengumuman',[
+        return view('berita',[
             'pengumuman' => $pengumuman,
             'currentPage' => $currentPage,
             'commen' => $commen
@@ -268,7 +298,8 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::where('slug', $slug)->firstOrFail();
         $filepengumuman = FilePengumuman::where('pengumuman_id', $pengumuman->id)->get();
         $commen = CommetPengumuman::where('pengumuman_id', $pengumuman->id)->get();
-        return view('detailpengumuman', compact('pengumuman','filepengumuman','commen'));
+        $kegiatanall = Kegiatan::all();
+        return view('detail2', compact('pengumuman','filepengumuman','commen','kegiatanall'));
     }
 
 

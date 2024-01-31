@@ -33,54 +33,52 @@
                             <!-- Post Items Start -->
                             <div class="post--items post--items-2" data-ajax-content="outer">
                                 <ul class="nav" data-ajax-content="inner">
-                                    @foreach($pengumuman as $berita)
-                                        <li>
-                                            <!-- Post Item Start -->
-                                            <div class="post--item">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="post--img">
-                                                            <a href="{{ route('pengumumanetails', ['slug' => $berita->slug]) }}" class="thumb">
-                                                                <img src="{{ asset('uploads/' . $berita->gambar) }}" alt="">
-                                                            </a>
-                                                            <a href="#" class="cat">News</a>
-                                                
+                                    <li>
+                                        <!-- Post Item Start -->
+                                        @foreach($pengumuman as $berita)
+                                        <div class="post--item mb-4">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="post--img">
+                                                        <a href="{{ route('pengumumanetails', ['slug' => $berita->slug]) }}" class="thumb">
+                                                            <img src="{{ asset('uploads/' . $berita->gambar) }}" alt="">
+                                                        </a>
+                                                        <a href="#" class="cat">Berita</a>
+                                                        <a href="#" class="icon"><i class="fa fa-star-o"></i></a>
+                                                    </div>
+                                                </div>
+                                    
+                                                <div class="col-md-6">
+                                                    <div class="post--info">
+                                                        <ul class="nav meta">
+                                                            <li><a href="#">{{ $berita->author_name }}</a></li>
+                                                            <li><a href="#">{{ $berita->updated_at->format('M d, Y H:i A') }}</a></li>
+                                                        </ul>
+                                    
+                                                        <div class="title">
+                                                            <h3 class="h4"><a href="{{ route('pengumumanetails', ['slug' => $berita->slug]) }}" class="btn-link">{!! Str::limit(strip_tags($berita->judul), 25) !!}</a></h3>
                                                         </div>
                                                     </div>
-                                
-                                                    <div class="col-md-6">
-                                                        <div class="post--info">
-                                                            <ul class="nav meta">
-                                                                <li><a href="#">{{ $berita->author }}</a></li>
-                                                                <li><a href="#">{{ $berita->created_at->format('M d, Y H:i A') }}</a></li>
-                                                            </ul>
-                                
-                                                            <div class="title">
-                                                                <a href="{{ route('pengumumanetails', ['slug' => $berita->slug]) }}" class="thumb">
-                                                            </div>
-                                                        </div>
-                                
-                                                        <div class="post--content">
-                                                            <p>{!! Str::limit(strip_tags($berita->deskripsi), 100) !!}</p>
-                                                        </div>
-                                
-                                                        <div class="post--action">
-                                                            <a href="{{ route('pengumumanetails', ['slug' => $berita->slug]) }}" class="thumb">Continue Reading...</a>
-                                                        </div>
+                                    
+                                                    <div class="post--content">
+                                                        <p>{!! Str::limit(strip_tags($berita->deskripsi), 100) !!}</p>
+                                                    </div>
+                                    
+                                                    <div class="post--action">
+                                                        <a href="{{ route('pengumumanetails', ['slug' => $berita->slug]) }}">Continue Reading...</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Post Item End -->
-                                        </li>
-                                
-                                        <li>
-                                            <!-- Divider Start -->
-                                            <hr class="divider">
-                                            <!-- Divider End -->
-                                        </li>
+                                        </div>
                                     @endforeach
+                                    
+                                    
+                                        <!-- Post Item End -->
+                                    </li>
+
+                                 
+                                   
                                 </ul>
-                                
 
                                 <!-- Preloader Start -->
                                 <div class="preloader bg--color-0--b" data-preloader="1">
@@ -121,10 +119,12 @@
                             </div>
                         </div>
                         
+                        
                     </div>
                 </div>
             </div>
-  
+            <!-- Main Content End -->
+
         </div>
     </div>
 </div>
