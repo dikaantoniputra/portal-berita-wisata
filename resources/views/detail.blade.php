@@ -68,18 +68,19 @@
                     <!-- Advertisement End -->
 
 
-{{--                    
+                    @if(auth()->check())
                     <!-- Comment List Start -->
                     <div class="comment--list pd--30-0">
                         <!-- Post Items Title Start -->
                         <div class="post--items-title">
-                            <h2 class="h4">03 Comments</h2>
-
+                            <h2>Komentar {{ $kegiatan->company->name }} </h2>
+                            <p>Komentar dengan bijak</p>
                             <i class="icon fa fa-comments-o"></i>
                         </div>
                         <!-- Post Items Title End -->
 
                         <ul class="comment--items nav">
+                            @foreach ( $commen as $komen)
                             <li>
                                 <!-- Comment Item Start -->
                                 <div class="comment--item clearfix">
@@ -89,70 +90,29 @@
 
                                     <div class="comment--info">
                                         <div class="comment--header clearfix">
-                                            <p class="name">Karla Gleichauf</p>
-                                            <p class="date">12 May 2017 at 05:28 pm</p>
+                                            <p class="name">{{ $komen->name }}</p>
+                                            <p class="date">{{ $komen->updated_at }}</p>
 
-                                            <a href="#" class="reply"><i class="fa fa-mail-reply"></i></a>
+                                            
                                         </div>
 
                                         <div class="comment--content">
-                                            <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment</p>
+                                            <p>{{ $komen->content }}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Comment Item End -->
                             </li>
+                            @endforeach
 
-                            <li>
-                                <!-- Comment Item Start -->
-                                <div class="comment--item clearfix">
-                                    <div class="comment--img float--left">
-                                        <img src="img/news-single-img/comment-avatar-02.jpg" alt="">
-                                    </div>
-
-                                    <div class="comment--info">
-                                        <div class="comment--header clearfix">
-                                            <p class="name">M Shyamalan</p>
-                                            <p class="date">12 May 2017 at 05:28 pm</p>
-
-                                            <a href="#" class="reply"><i class="fa fa-mail-reply"></i></a>
-                                        </div>
-
-                                        <div class="comment--content">
-                                            <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Comment Item End -->
-
-                                <ul class="comment--items nav">
-                                    <li>
-                                        <!-- Comment Item Start -->
-                                        <div class="comment--item clearfix">
-                                            <div class="comment--img float--left">
-                                                <img src="img/news-single-img/comment-avatar-03.jpg" alt="">
-                                            </div>
-
-                                            <div class="comment--info">
-                                                <div class="comment--header clearfix">
-                                                    <p class="name">Liz Montano</p>
-                                                    <p class="date">12 May 2017 at 05:28 pm</p>
-
-                                                    <a href="#" class="reply"><i class="fa fa-mail-reply"></i></a>
-                                                </div>
-
-                                                <div class="comment--content">
-                                                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Comment Item End -->
-                                    </li>
-                                </ul>
-                            </li>
+                         
                         </ul>
                     </div>
-                    <!-- Comment List End --> --}}
+                    @else
+        <!-- Display login button if the user is not logged in -->
+                       
+                    @endif
+                    <!-- Comment List End -->
 
                     <!-- Comment Form Start -->
                     <div class="comment--form pd--30-0">
@@ -163,16 +123,17 @@
                             <i class="icon fa fa-pencil-square-o"></i>
                         </div>
                         <!-- Post Items Title End -->
-
+                        @if(auth()->check())
                         <div class="comment-respond">
-                            <form action="#" data-form="validate">
+                            <form  method="POST" action="{{ route('commentskegiatan.store') }}"  id="commentform" class="comment-form">
+                                @csrf
                                 <p>Don’t worry ! Your email address will not be published. Required fields are marked (*).</p>
-
+                                <input type="text" id="author" name="kegiatan_id" style="display: none" value="{{ $kegiatan->id }}">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <label>
                                             <span>Comment *</span>
-                                            <textarea name="comment" class="form-control" required></textarea>
+                                            <textarea name="content" class="form-control" required></textarea>
                                         </label>
                                     </div>
 
@@ -187,10 +148,7 @@
                                             <input type="email" name="email" class="form-control" required>
                                         </label>
 
-                                        <label>
-                                            <span>Website</span>
-                                            <input type="text" name="website" class="form-control">
-                                        </label>
+                                        
                                     </div>
 
                                     <div class="col-md-12">
@@ -199,6 +157,12 @@
                                 </div>
                             </form>
                         </div>
+                        @else
+        <!-- Display login button if the user is not logged in -->
+                        <div class="comment-respond">
+                            <p>Please <a href="{{ url('login') }}">login</a> to post a comment.</p>
+                        </div>
+                    @endif
                     </div>
                     <!-- Comment Form End -->
                 </div>

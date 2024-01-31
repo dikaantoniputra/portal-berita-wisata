@@ -111,6 +111,6 @@ Route::get('daftar', function () {
 Route::get('/searchkegiatan',  [PengumumanController::class, 'kegiatan'])->name('searchkegiatan');
 
 
-// Route::resource('commentspengumuman', CommetPengumumanController::class);
+Route::resource('commentspengumuman', CommetPengumumanController::class);
 
-// Route::resource('commentskegiatan', CommentKegiatanController::class);
+Route::resource('commentskegiatan', CommentKegiatanController::class);

@@ -66,6 +66,51 @@
                         </a>
                     </div>
 
+                    @if(auth()->check())
+                    <!-- Comment List Start -->
+                    <div class="comment--list pd--30-0">
+                        <!-- Post Items Title Start -->
+                        <div class="post--items-title">
+                            <h2>Komentar {{ $pengumuman->judul }} </h2>
+                            <p>Komentar dengan bijak</p>
+                            <i class="icon fa fa-comments-o"></i>
+                        </div>
+                        <!-- Post Items Title End -->
+
+                        <ul class="comment--items nav">
+                            @foreach ( $commen as $komen)
+                            <li>
+                                <!-- Comment Item Start -->
+                                <div class="comment--item clearfix">
+                                    <div class="comment--img float--left">
+                                        <img src="img/news-single-img/comment-avatar-01.jpg" alt="">
+                                    </div>
+
+                                    <div class="comment--info">
+                                        <div class="comment--header clearfix">
+                                            <p class="name">{{ $komen->name }}</p>
+                                            <p class="date">{{ $komen->updated_at }}</p>
+
+                                           
+                                        </div>
+
+                                        <div class="comment--content">
+                                            <p>{{ $komen->content }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comment Item End -->
+                            </li>
+                            @endforeach
+
+                         
+                        </ul>
+                    </div>
+                    @else
+        <!-- Display login button if the user is not logged in -->
+                       
+                    @endif
+
                     <div class="comment--form pd--30-0">
                         <!-- Post Items Title Start -->
                         <div class="post--items-title">
@@ -74,43 +119,55 @@
                             <i class="icon fa fa-pencil-square-o"></i>
                         </div>
                         <!-- Post Items Title End -->
-
-                        <div class="comment-respond">
-                            <form action="#" data-form="validate">
-                                <p>Don’t worry ! Your email address will not be published. Required fields are marked (*).</p>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <label>
-                                            <span>Comment *</span>
-                                            <textarea name="comment" class="form-control" required></textarea>
-                                        </label>
+                        <div class="comment--form pd--30-0">
+                            <!-- Post Items Title Start -->
+                            <div class="post--items-title">
+                                <h2 class="h4">Komentar</h2>
+    
+                                <i class="icon fa fa-pencil-square-o"></i>
+                            </div>
+                            <!-- Post Items Title End -->
+                            @if(auth()->check())
+                            <div class="comment-respond">
+                                <form  method="POST" action="{{ route('commentspengumuman.store') }}"  id="commentform" class="comment-form">
+                                    @csrf
+                                    <p>Don’t worry ! Your email address will not be published. Required fields are marked (*).</p>
+                                    <input type="text" id="author" name="kegiatan_id" style="display: none" value="{{ $kegiatan->id }}">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>
+                                                <span>Comment *</span>
+                                                <textarea name="content" class="form-control" required></textarea>
+                                            </label>
+                                        </div>
+    
+                                        <div class="col-sm-6">
+                                            <label>
+                                                <span>Name *</span>
+                                                <input type="text" name="name" class="form-control" required>
+                                            </label>
+    
+                                            <label>
+                                                <span>Email Address *</span>
+                                                <input type="email" name="email" class="form-control" required>
+                                            </label>
+    
+                                            
+                                        </div>
+    
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-primary">Post a Comment</button>
+                                        </div>
                                     </div>
-
-                                    <div class="col-sm-6">
-                                        <label>
-                                            <span>Name *</span>
-                                            <input type="text" name="name" class="form-control" required>
-                                        </label>
-
-                                        <label>
-                                            <span>Email Address *</span>
-                                            <input type="email" name="email" class="form-control" required>
-                                        </label>
-
-                                        <label>
-                                            <span>Website</span>
-                                            <input type="text" name="website" class="form-control">
-                                        </label>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary">Post a Comment</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
+                            @else
+            <!-- Display login button if the user is not logged in -->
+                            <div class="comment-respond">
+                                <p>Please <a href="{{ url('login') }}">login</a> to post a comment.</p>
+                            </div>
+                        @endif
                         </div>
-                    </div>
                     <!-- Comment Form End -->
                 </div>
             </div>
