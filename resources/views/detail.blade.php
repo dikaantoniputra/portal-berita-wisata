@@ -42,7 +42,7 @@
                     <!-- Post Item Start -->
                     <div class="post--item post--single post--title-largest pd--30-0">
                         <div class="post--img">
-                            <a href="#" class="thumb"><img src="{{ asset($kegiatan->gambar) }}" alt=""></a>
+                            <a href="#" class="thumb"><img src="{{ asset('uploads/' . $kegiatan->gambar) }}" alt=""></a>
                            
 
                             

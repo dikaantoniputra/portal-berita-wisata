@@ -40,61 +40,26 @@
 
 
 						<ul class="dropdown-menu">
-							<li class="dropdown">
-								<a href="#">Wisata Sejarah</a>
+							
+							{{-- @foreach ($category as $cat)
+								<a href="#">{{ $cat->name }}</a>
+								@endforeach --}}
+							@foreach ($category as $cat)
+								<li class="dropdown">
+									<a href="{{ route('category', ['id' => $cat->id]) }}">{{ $cat->name }}</a>
+									<ul class="dropdown-menu">
+										@foreach ($kegiatan->where('category_kegiatan_id', $cat->id)->take(5) as $item)
+											<li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->judul }}</a></li>
+										@endforeach
+										<!-- Add more items or adjust the loop as needed -->
+									</ul>
+								</li>
+							@endforeach
+							
 
-								<ul class="dropdown-menu">
-									<li><a href="#">Kelenteng Sanggar Agung Kenjeran</a></li>
-									<li><a href="#">Patung Suro dan Boyo</a></li>
-									<li><a href="#">House of Sampoerna</a></li>
-									<li><a href="#">Museum Pendidikan Surabaya</a></li>
-									<li><a href="#">Museum De Javasche Bank</a></li>
-								</ul>
-							</li>
-
-							<li class="dropdown">
-								<a href="#">Wisata Cagar Alam</a>
-
-								<ul class="dropdown-menu">
-									<li><a href="#">Ekowisata Mangrove Wonorejo Rungkut</a></li>
-									<li><a href="#">Kebun Bibit Wonorejo </a></li>
-									<li><a href="#">Mangrove Gunung Anyar </a></li>
-									<li><a href="#">Hutan Bambu dan Taman Sakura Keputih</a></li>
-								</ul>
-							</li>
-
-							<li class="dropdown">
-								<a href="#">Wisata Keluarga</a>
-
-								<ul class="dropdown-menu">
-									<li><a href="#">Surabaya North Quay</a></li>
-									<li><a href="#">KenPark (Kenjeran Park)</a></li>
-									<li><a href="#">Ciputra Waterpark Surabaya</a></li>
-								</ul>
-							</li>
-
-							<li class="dropdown">
-								<a href="#">Wisata Kuliner</a>
-
-								<ul class="dropdown-menu">
-									<li><a href="#">Lontong Kupang Artomoro</a></li>
-									<li><a href="#">Sate Klopo Ondomohen</a></li>
-									<li><a href="#">Ice Cream Zangrandi</a></li>
-								</ul>
-							</li>
-
-							<li class="dropdown">
-								<a href="#">Wisata Religi</a>
-
-								<ul class="dropdown-menu">
-									<li><a href="#">Makam Sunan Ampel</a></li>
-									<li><a href="#">Masjid Al Akbar Surabaya</a></li>
-									<li><a href="#">Masjid Muhammad Cheng Hoo Surabaya</a></li>
-								</ul>
-							</li>
 						</ul>
 					</li>
-					<li><a href="{{ url('/') }}">Berita</a></li>
+					<li><a href="{{ url('/berita-all') }}">Berita</a></li>
 
 				
 				</ul>

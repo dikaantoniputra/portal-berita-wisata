@@ -26,6 +26,7 @@
         <div id="wrapper">
 		
         @include('includes.navbar')
+       
                     @yield('content')    
        
 

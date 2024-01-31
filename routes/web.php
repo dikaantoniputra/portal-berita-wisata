@@ -73,8 +73,10 @@ Route::get('/comment2/delete/{id}', [CommentKegiatanController::class, 'destroy'
 
 Route::get('/', [WisataController::class, 'index'])->name('index');
 
-Route::get('kegiatan-all', [WisataController::class, 'kegiatan'])->name('kegiatan');
-Route::get('kegiatan/{slug}', [WisataController::class, 'detail'])->name('kegiatanetails');
+
+// web.php or routes.php (depending on your Laravel version)
+Route::get('/category/{id}', [KegiatanController::class, 'category'])->name('category');
+Route::get('kegiatanetails/{slug}', [WisataController::class, 'detail'])->name('kegiatanetails');
 
 // Route::get('detail', function () {
 //     return view('detail');

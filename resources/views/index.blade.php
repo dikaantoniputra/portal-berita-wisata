@@ -33,7 +33,35 @@
                 <div class="row gutter--15">
                     <div class="col-md-6">
                         <!-- Post Item Start -->
-                    
+                        @if($kegiatan->isNotEmpty())
+                        @php
+                            $latestItem = $kegiatan->first();
+                        @endphp
+                        <div class="post--item post--layout-1 post--title-larger">
+                            <div class="post--img">
+                                <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="thumb">
+                                    <img src="{{ asset('uploads/' . $latestItem->gambar) }}" alt="{{ $latestItem->judul }}">
+                                </a>
+                                <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="cat">{{ $latestItem->category }}</a>
+                                <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
+                
+                               
+                
+                                <div class="post--info">
+                                    <ul class="nav meta">
+                                        <li><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}">{{ $latestItem->user->username }}</a></li>
+                                        <li><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}">{{ $latestItem->created_at }}</a></li>
+                                    </ul>
+                
+                                    <div class="title">
+                                        <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="btn-link">{{ $latestItem->judul }}</a></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Post Item End -->
+                    @endif
+
                     </div>
                     
 
@@ -48,7 +76,7 @@
                                     <div class="post--item post--layout-1 post--title-large">
                                         <div class="post--img">
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
-                                                <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
+                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{{ $item->judul }}">
                                             </a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
@@ -71,14 +99,14 @@
                             
                             <div class="col-xs-6 hidden-xss">
                                 <!-- Post Item Start -->
-                                @if($kegiatan->count() > 1)
+                                @if($kegiatan->count() > 2)
                                     @php
                                         $item = $kegiatan->get(2);
                                     @endphp
                                     <div class="post--item post--layout-1 post--title-large">
                                         <div class="post--img">
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
-                                                <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
+                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{{ $item->judul }}">
                                             </a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
@@ -117,7 +145,7 @@
                                     <div class="post--item post--layout-1 post--title-larger">
                                         <div class="post--img">
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
-                                                <img src="{{ asset($item->gambar) }}" alt="{{ $item->judul }}">
+                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{{ $item->judul }}">
                                             </a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-fire"></i></a>
@@ -239,7 +267,7 @@
                                             <!-- Post Item Start -->
                                             <div class="post--item post--layout-2">
                                                 <div class="post--img">
-                                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset($item->gambar) }}" alt=""></a>
+                                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('uploads/' . $item->gambar) }}" alt=""></a>
                                 
                                                     <div class="post--info">
                                                         <ul class="nav meta">
@@ -298,7 +326,7 @@
                                                     <div class="post--item post--layout-2">
                                                         <div class="post--img">
                                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
-                                                                <img src="{{ asset($item->gambar) }}" alt="">
+                                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="">
                                                             </a>
                                         
                                                             <div class="post--info">
@@ -361,7 +389,7 @@
                                                 <!-- Post Item Start -->
                                                 <div class="post--item post--layout-2">
                                                     <div class="post--img">
-                                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset($item->gambar) }}" alt=""></a>
+                                                        <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('uploads/' . $item->gambar) }}" alt=""></a>
                                     
                                                         <div class="post--info">
                                                             <ul class="nav meta">
@@ -417,7 +445,7 @@
                                             <!-- Post Item Start -->
                                             <div class="post--item post--layout-2">
                                                 <div class="post--img">
-                                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('') }}portal/img/home-img/politics-02.jpg" alt=""></a>
+                                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('uploads/' . $item->gambar) }}" alt=""></a>
 
                                                     <div class="post--info">
                                                         <ul class="nav meta">
@@ -472,7 +500,7 @@
                                             <!-- Post Item Start -->
                                             <div class="post--item post--layout-2">
                                                 <div class="post--img">
-                                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset($item->gambar) }}" alt=""></a>
+                                                    <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb"><img src="{{ asset('uploads/' . $item->gambar) }}" alt=""></a>
                                 
                                                     <div class="post--info">
                                                         <ul class="nav meta">

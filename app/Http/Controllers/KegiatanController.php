@@ -290,6 +290,27 @@ class KegiatanController extends Controller
         ]);
     }
 
+    public function category($id)
+    {
+       
+        $pilihan = CategoryKegiatan::findOrFail($id);
+    
+
+        $kegiatan = Kegiatan::query();
+
+        $kegiatan->where('category_kegiatan_id', $pilihan->id);
+
+        
+
+
+        $kegiatan = $kegiatan->paginate(6);
+        $currentPage = $kegiatan->currentPage();
+
+        return view('category', [
+            'kegiatan' => $kegiatan,
+            'currentPage' => $currentPage
+        ]);
+    }
 
 
 
