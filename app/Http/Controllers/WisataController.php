@@ -20,7 +20,8 @@ class WisataController extends Controller
     public function index(Request $request)
     {
         $kegiatankategori = CategoryKegiatan::all();
-        $kegiatan = Kegiatan::all();
+        $kegiatan = Kegiatan::all()->sortByDesc('updated_at');
+
 
       
 

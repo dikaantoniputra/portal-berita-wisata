@@ -101,10 +101,13 @@ class PengumumanController extends Controller
         $company->user_id = $id_user;
 
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('bukti_pembayaran');
-            $path = $request->file('gambar')->store('public/gambar');
-            $company->gambar = 'storage/' . substr($path, 7);
+     
+
+        if ($request->hasFile('gambar') && $request->file('gambar')->isValid()) {
+            $logoFile = $request->file('gambar');
+            $logoFileName = 'gambar' . time() . '.' . $logoFile->getClientOriginalExtension();
+            $logoFile->move(public_path('uploads/'), $logoFileName);
+            $company->gambar = $logoFileName;
         }
 
         $company->save();
@@ -182,10 +185,11 @@ class PengumumanController extends Controller
         $pengumuman->judul = $request->judul;
         $pengumuman->deskripsi = $request->deskripsi;
 
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $path = $file->store('public/gambar');
-            $pengumuman->gambar = 'storage/' . substr($path, 7);
+        if ($request->hasFile('gambar') && $request->file('gambar')->isValid()) {
+            $logoFile = $request->file('gambar');
+            $logoFileName = 'gambar' . time() . '.' . $logoFile->getClientOriginalExtension();
+            $logoFile->move(public_path('uploads/'), $logoFileName);
+            $pengumuman->gambar = $logoFileName;
         }
 
         $pengumuman->save();

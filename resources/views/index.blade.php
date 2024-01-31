@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    BUMDES | Home
+    Pariwisata | Home
     
 @endsection
 
@@ -33,34 +33,7 @@
                 <div class="row gutter--15">
                     <div class="col-md-6">
                         <!-- Post Item Start -->
-                        @if($kegiatan->isNotEmpty())
-                            @php
-                                $latestItem = $kegiatan->first();
-                            @endphp
-                            <div class="post--item post--layout-1 post--title-larger">
-                                <div class="post--img">
-                                    <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="thumb">
-                                        <img src="{{ asset('uploads/' . $latestItem->gambar) }}" alt="{{ $latestItem->judul }}">
-                                    </a>
-                                    <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="cat">{{ $latestItem->category }}</a>
-                                    <a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
                     
-                                   
-                    
-                                    <div class="post--info">
-                                        <ul class="nav meta">
-                                            <li><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}">{{ $latestItem->user->username }}</a></li>
-                                            <li><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}">{{ $latestItem->created_at }}</a></li>
-                                        </ul>
-                    
-                                        <div class="title">
-                                            <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $latestItem->slug]) }}" class="btn-link">{{ $latestItem->judul }}</a></h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <!-- Post Item End -->
-                        @endif
                     </div>
                     
 
@@ -536,7 +509,7 @@
             <!-- Main Content End -->
 
             <!-- Main Sidebar Start -->
-            <div class="main--sidebar col-md-4 col-sm-5 ptop--30 pbottom--30" data-sticky-content="true">
+            {{-- <div class="main--sidebar col-md-4 col-sm-5 ptop--30 pbottom--30" data-sticky-content="true">
                 <div class="sticky-content-inner">
                     <!-- Widget Start -->
                     <div class="widget">
@@ -673,7 +646,7 @@
                     <!-- Widget End -->
 
                 </div>
-            </div>
+            </div> --}}
             <!-- Main Sidebar End -->
         </div>
 
