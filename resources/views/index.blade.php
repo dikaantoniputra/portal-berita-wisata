@@ -216,7 +216,7 @@
                                                             <div class="title">
                                                                 <h3 class="h4">
                                                                     <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">
-                                                                        <p>{!! substr($item->deskripsi, 0, 20) !!}...</p>
+                                                                        <p>{!! substr($item->deskripsi, 0, 70) !!}...</p>
                                                                     </a>
                                                                 </h3>
                                                             </div>
@@ -276,7 +276,7 @@
                                                         </ul>
                                 
                                                         <div class="title">
-                                                            <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link"><p>{!! substr($item->deskripsi, 0, 20) !!}...</p></a></h3>
+                                                            <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link"><p>{!! substr($item->deskripsi, 0, 70) !!}...</p></a></h3>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -338,7 +338,7 @@
                                                                 <div class="title">
                                                                     <h3 class="h4">
                                                                         <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">
-                                                                          <p>{!! substr($item->deskripsi, 0, 20) !!}...</p>
+                                                                          <p>{!! substr($item->deskripsi, 0, 70) !!}...</p>
                                                                         </a>
                                                                     </h3>
                                                                 </div>
@@ -398,7 +398,7 @@
                                                             </ul>
                                     
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link"><p>{!! substr($item->deskripsi, 0, 20) !!}...</p></a></h3>
+                                                                <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link"><p>{!! substr($item->deskripsi, 0, 70) !!}...</p></a></h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -454,7 +454,7 @@
                                                         </ul>
 
                                                         <div class="title">
-                                                            <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link"><p>{!! substr($item->deskripsi, 0, 20) !!}...</p></a></h3>
+                                                            <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link"><p>{!! substr($item->deskripsi, 0, 70) !!}...</p></a></h3>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -509,7 +509,7 @@
                                                         </ul>
                                 
                                                         <div class="title">
-                                                            <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link"><p>{!! substr($item->deskripsi, 0, 20) !!}...</p></a></h3>
+                                                            <h3 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link"><p>{!! substr($item->deskripsi, 0, 70) !!}...</p></a></h3>
                                                         </div>
                                                     </div>
                                                 </div>
