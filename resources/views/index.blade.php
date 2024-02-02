@@ -76,7 +76,7 @@
                                     <div class="post--item post--layout-1 post--title-large">
                                         <div class="post--img">
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
-                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{{ $item->judul }}">
+                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{!! substr($item->judul, 0, 50) !!}">
                                             </a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
@@ -88,7 +88,7 @@
                                                 </ul>
                             
                                                 <div class="title">
-                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{{ $item->judul }}</a></h2>
+                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{!! substr($item->judul, 0, 50) !!}</a></h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -106,7 +106,7 @@
                                     <div class="post--item post--layout-1 post--title-large">
                                         <div class="post--img">
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
-                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{{ $item->judul }}">
+                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{!! substr($item->judul, 0, 50) !!}">
                                             </a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-flash"></i></a>
@@ -127,7 +127,7 @@
                                                 </ul>
                             
                                                 <div class="title">
-                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{{ $item->judul }}</a></h2>
+                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{!! substr($item->judul, 0, 50) !!}</a></h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +145,7 @@
                                     <div class="post--item post--layout-1 post--title-larger">
                                         <div class="post--img">
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="thumb">
-                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{{ $item->judul }}">
+                                                <img src="{{ asset('uploads/' . $item->gambar) }}" alt="{!! substr($item->judul, 0, 50) !!}">
                                             </a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="cat">{{ $item->category }}</a>
                                             <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="icon"><i class="fa fa-fire"></i></a>
@@ -157,7 +157,7 @@
                                                 </ul>
                             
                                                 <div class="title">
-                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{{ $item->judul }}</a></h2>
+                                                    <h2 class="h4"><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">{!! substr($item->judul, 0, 50) !!}</a></h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,7 +209,7 @@
                                     
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->judul }}</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{!! substr($item->judul, 0, 50) !!}</a></li>
                                                                 <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
                                                             </ul>
                                     
@@ -271,7 +271,7 @@
                                 
                                                     <div class="post--info">
                                                         <ul class="nav meta">
-                                                            <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->judul }}</a></li>
+                                                            <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{!! substr($item->judul, 0, 50) !!}</a></li>
                                                             <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
                                                         </ul>
                                 
@@ -331,7 +331,7 @@
                                         
                                                             <div class="post--info">
                                                                 <ul class="nav meta">
-                                                                    <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->judul }}</a></li>
+                                                                    <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{!! substr($item->judul, 0, 50) !!}</a></li>
                                                                     <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
                                                                 </ul>
                                         
@@ -393,7 +393,7 @@
                                     
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->judul }}</a></li>
+                                                                <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{!! substr($item->judul, 0, 50) !!}</a></li>
                                                                 <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
                                                             </ul>
                                     
@@ -449,7 +449,7 @@
 
                                                     <div class="post--info">
                                                         <ul class="nav meta">
-                                                            <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->judul }}</a></li>
+                                                            <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{!! substr($item->judul, 0, 50) !!}</a></li>
                                                             <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
                                                         </ul>
 
@@ -504,7 +504,7 @@
                                 
                                                     <div class="post--info">
                                                         <ul class="nav meta">
-                                                            <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->judul }}</a></li>
+                                                            <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{!! substr($item->judul, 0, 50) !!}</a></li>
                                                             <li><a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}">{{ $item->created_at }}</a></li>
                                                         </ul>
                                 
