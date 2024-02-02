@@ -216,7 +216,7 @@
                                                             <div class="title">
                                                                 <h3 class="h4">
                                                                     <a href="{{ route('kegiatanetails', ['slug' => $item->slug]) }}" class="btn-link">
-                                                                       {{ Illuminate\Support\Str::limit($item->deskripsi, 25) }}
+                                                                        <p>{!! substr($item->deskripsi, 0, 20) !!}...</p>
                                                                     </a>
                                                                 </h3>
                                                             </div>
